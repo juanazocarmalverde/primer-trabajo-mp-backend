@@ -13,10 +13,6 @@ class ApiProductController extends Controller
      */
     public function index(Request $request)
     {
-        if (!$request->header('Authorization')) {
-            return response()->json(['error' => 'Authorization header not found'], 401);
-        }
-
         $products = Product::all();
         return response()->json([
             'status' => true,
